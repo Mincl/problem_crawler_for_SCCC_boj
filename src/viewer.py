@@ -34,11 +34,11 @@ for link, val in solved_list.items():
     rebuild_list.append(info)
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-spa', help="sort by solved per all")
-parser.add_argument('-spc', help="sort by solved per challenger [default]")
-parser.add_argument('-cpa', help="sort by challenger per all")
-parser.add_argument('-d', help="sort by descending order [default]")
-parser.add_argument('-a', help="sort by ascending order")
+parser.add_argument('-spa', help="sort by solved per all", action="store_true")
+parser.add_argument('-spc', help="sort by solved per challenger [default]", action="store_true")
+parser.add_argument('-cpa', help="sort by challenger per all", action="store_true")
+parser.add_argument('-d', help="sort by descending order [default]", action="store_true")
+parser.add_argument('-a', help="sort by ascending order", action="store_true")
 args = parser.parse_args()
 
 column = 'solved_per_challenger'
