@@ -56,7 +56,9 @@ for member, link in sccc_member.items():
                         # initialize new problem
                         solved_problems[span.a['href']] = {
                             'solved_cnt': 0,
-                            'failed_cnt': 0
+                            'failed_cnt': 0,
+                            'solved_users': [],
+                            'failed_users': []
                         }
                     key = span.a['href']
                     solved_problems[key]['number']=span.a.string
@@ -64,10 +66,12 @@ for member, link in sccc_member.items():
                     if panel_cnt == 1:
                         solved_problems[key]['solved_cnt'] = \
                             solved_problems[key]['solved_cnt'] + 1
+                        solved_problems[key]['solved_users'].append(member)
                     # else, failed
                     else:
                         solved_problems[key]['failed_cnt'] = \
                             solved_problems[key]['failed_cnt'] + 1
+                        solved_problems[key]['failed_users'].append(member)
                 elif has_class(span, 'problem_title'):
                     solved_problems[span.a['href']]['title']=span.a.string
     print ('user %s(HTML) parse DONE! (%d)' % (member, cnt))
